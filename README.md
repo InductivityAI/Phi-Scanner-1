@@ -2,13 +2,10 @@
 
 While the world philosophizes about AI consciousness, we measure its mathematical prerequisite: true information integration. 
 
-At **InductivityAI**, we built the first $O(N^3)$ heuristic to compute **Topological Phi (Φ)** — the measure of integrated information — overcoming the super-exponential $O(2^N)$ barrier that made it impossible to evaluate high-dimensional neural networks. 
+At **InductivityAI**, we built the first $O(N^3)$ model to compute **Topological Phi (Φ)** — the measure of integrated information — overcoming the super-exponential $O(2^N)$ barrier that made it impossible to evaluate high-dimensional neural networks. 
 
 ## 1. LLM Diagnostics: The "Phi-Collapse"
-We ran our Φ-estimator over the attention matrices of standard LLMs (e.g., GPT-2). The math proves the "Residual Stream Hypothesis":
-
-* **Early Layers (0-2):** High Φ-scores. The network actively integrates context and builds concepts.
-* **Deep Layers (3+):** The Φ-score collapses by over 80%. The network stops integrating and fragments into sparse, isolated feature extraction to guess the next token. 
+We ran our Φ-model over the attention matrices of standard LLMs (e.g., GPT-2). The math proves the "Residual Stream Hypothesis":
 
 **Live Scan Data (GPT-2, Head 0, Prompt: "Although the startup was based in Germany, the founder rejected the..."):**
 ```text
@@ -30,7 +27,7 @@ Result: Phi-Collapse confirmed on this model.
 ```
 
 ## 2. The Solution: Φ-Regularization (Vision Proof)
-Instead of just diagnosing, we used our Φ-estimator to regularize the architecture during training, forcing the network to maximize integrated information.
+Instead of just diagnosing, we used our Φ-model to regularize the architecture during training, forcing the network to maximize integrated information.
 
 Here is the result of two Vision Classifiers trained to identical accuracy:
 
@@ -62,7 +59,7 @@ buffer.seek(0)
 # 3. Send to InductivityAI Engine
 print("Sending matrix to O(N^3) Engine...")
 response = requests.post(
-    "http://178.104.160.208:8000/scan_layer", 
+    "http://api.inductivity.ai/scan_layer", 
     files={"file": ("matrix.npy", buffer)}
 )
 
