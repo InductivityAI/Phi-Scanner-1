@@ -59,7 +59,7 @@ buffer.seek(0)
 # 3. Send to InductivityAI Engine
 print("Sending matrix to O(N^3) Engine...")
 response = requests.post(
-    "http://api.inductivity.ai/scan_layer", 
+    "https://api.inductivity.ai/scan_layer", 
     files={"file": ("matrix.npy", buffer)}
 )
 
