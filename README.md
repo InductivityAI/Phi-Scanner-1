@@ -37,10 +37,11 @@ Here is the result of two Vision Classifiers trained to identical accuracy:
 ![Phi Regularization Comparison](Comparision-Vision-Model.png)
 
 + **Left (Standard Cross-Entropy):** Normal net. The network brute-forces statistical correlations.
-+ **Right (�Regularized):** Highly structured, GWT-like concept formation.
++ **Right (φ-Regularized):** Highly structured, GWT-like concept formation.
 
 ## 3. Test it yourself (Live API)
 We have opened a public API endpoint. You can extract any Attention Matrix from your local Hugging Face models and run it through our engine right now.
+
 *(Note: The public free API is limited to a max dimension of 1024x1024 to preserve server capacity. Rate limit: 10 requests / minute).*
 
 **Client Implementation (Python):**
