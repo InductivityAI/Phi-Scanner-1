@@ -27,3 +27,48 @@ Layer 10 | Phi-Score: 0.0261
 Layer 11 | Phi-Score: 0.0265  
 ============================================================
 Result: Phi-Collapse confirmed. The model stops "thinking" (integrating) after layer 1.
+
+
+
+Conclusion: Scaling beyond a certain depth burns millions in compute for "dead layers" with zero structural intelligence.
+
+2. The Solution: Φ-Regularization (Vision Proof)
+Instead of just diagnosing, we used our Φ-estimator to regularize the architecture during training, forcing the network to maximize integrated information.
+
+Here is the result of two Vision Classifiers trained to identical accuracy:
+
+Left (Standard Cross-Entropy): Pure noise. The network brute-forces statistical correlations.
+
+Right (Φ-Regularized): Highly structured, grid-like concept formation. The network is forced to learn causal representations.
+
+3. Verify it yourself (Live API)
+To protect our core IP, the O(N 
+3
+ ) engine is closed-source. However, we have opened a public API endpoint. You can extract any Attention Matrix from your local Hugging Face models and run it through our engine right now.
+
+(Note: The public free API is limited to a max dimension of 1024x1024 to preserve server capacity. Rate limit: 10 requests / minute).
+
+
+```python
+import numpy as np
+import requests
+import io
+
+# 1. Generate a random matrix OR load your LLM's attention matrix
+# Matrix must be square (max 1024x1024 for the free API)
+W = np.random.randn(384, 384)
+
+# 2. Save to memory buffer securely
+buffer = io.BytesIO()
+np.save(buffer, W, allow_pickle=False)
+buffer.seek(0)
+
+# 3. Send to InductivityAI Engine
+print("Sending matrix to O(N^3) Engine...")
+response = requests.post(
+    "[http://178.104.160.208:8000/scan_layer](http://178.104.160.208:8000/scan_layer)", 
+    files={"file": ("matrix.npy", buffer)}
+)
+
+print(response.json())
+```
